@@ -8,6 +8,7 @@
     "test:e2e": "codeceptjs run --steps",
     "test": "start-server-and-test start http://localhost:8080 test:e2e",
     "lint": "eslint --ext js .",
+    "predeploy": "webpack build && mv ./dist/main.js ./main.js",
     "deploy": "gh-pages -d ."
   },
   "homepage": "https://0407chan.github.io/react-week1-assignment-1",
