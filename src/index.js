@@ -18,12 +18,12 @@ function createElement(tagName, props, ...children) {
   return element;
 }
 
-function render(count = 0) {
+function render({ count = 0 }) {
   function handleClick() {
-    render(count + 1);
+    render({ count: count + 1 });
   }
   function hanldeClickNumber(number) {
-    render(number);
+    render({ count: number });
   }
 
   const element = (
@@ -43,8 +43,13 @@ function render(count = 0) {
     </div>
   );
 
-  document.getElementById('app').textContent = '';
-  document.getElementById('app').appendChild(element);
+  const app = document.getElementById('app');
+  app.textContent = '';
+  app.appendChild(element);
 }
 
-render();
+const defaultValue = {
+  count: 0,
+};
+
+render(defaultValue);
